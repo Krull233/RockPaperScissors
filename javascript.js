@@ -5,20 +5,25 @@ function computerPlay(choices) {
 }
 
 function playRound() {
-  computerSelection = computerPlay(choices);
-  `Computer has chosen ${computerSelection}`;
   playerSelection = prompt().toLowerCase();
-  `Player has chosen ${playerSelection}`;
+  console.log(`Player has chosen ${playerSelection}`);
+  computerSelection = computerPlay(choices);
+  console.log(`Computer has chosen ${computerSelection}`);
   if (playerSelection == "rock" && computerSelection == "scissors") {
-    result = "Player has won this round!";
+    return "Player has won this round!";
   } else if (playerSelection == "paper" && computerSelection == "rock") {
-    result = "Player has won this round!";
+    return "Player has won this round!";
   } else if (playerSelection == "scissors" && computerSelection == "paper") {
-    result = "Player has won this round!";
+    return "Player has won this round!";
   } else if (playerSelection == computerSelection) {
-    result = "It's a tie!";
+    return "It's a tie!";
   } else {
-    result = "Computer has won this round!";
+    return "Computer has won this round!";
   }
-  return result;
+}
+
+function game() {
+  for (let g = 0; g < 5; g++) {
+    console.log(playRound());
+  }
 }
